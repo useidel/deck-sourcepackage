@@ -31,7 +31,7 @@ jobs:
 
       # Install rpm and copr tools
       - name: Install tooling for source RPM build
-        run: dnf -y install @development-tools @rpm-development-tools copr-cli make golang git
+        run: dnf -y install @development-tools @rpm-development-tools copr-cli 
 
       # Get/download the source files to the right place
       - name: Get the sources for RPM package

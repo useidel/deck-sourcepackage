@@ -9,7 +9,7 @@ Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
-Source0:	https://github.com/Kong/%{pkgname}/releases/download/v%{version}/%{pkgname}-%{version}.tar.gz
+Source0:	https://github.com/Kong/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
 Summary: 	Declarative configuration for Kong
 
 BuildRequires:  golang git
