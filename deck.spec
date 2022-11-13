@@ -5,7 +5,7 @@
 
 Name:		%{pkgname}
 Version:        1.16.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -30,6 +30,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sun Nov 13 2022 Udo Seidel <udoseidel@gmx.de> 1.16.1-2
+- Fix issue with ping when running against Konnect using a PAT. #790
+- full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
+
 * Sat Nov 12 2022 Udo Seidel <udoseidel@gmx.de> 1.16.1-1
 - first version release of SPEC
 
