@@ -12,3 +12,5 @@ I can easily create source and binary packages and make them accessible for YUM/
 
 I would like to cover that for DEB as well but this needs more research or a build plattform which 
 provides the needed framework (offering Debian and allowing internet access during the build).
+
+Additional information: There as a [discussion](https://github.com/goreleaser/goreleaser/issues/3136) which pointed to [go2rpm](https://pagure.io/GoSIG/go2rpm) and [dh-make-golang](https://go-team.pages.debian.net/), respectively. This might be another way to go.
