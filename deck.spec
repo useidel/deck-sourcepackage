@@ -4,7 +4,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.17.0
+Version:        1.17.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Dec 22 2022 Udo Seidel <udoseidel@gmx.de> 1.17.1-1
+- Update go-kong to fix a bug causing wrong injection of defaults for arbitrary map fields. (https://github.com/Kong/go-kong/pull/258)
+
 * Thu Dec 22 2022 Udo Seidel <udoseidel@gmx.de> 1.17.0-1
 - version update
 - added patch for fedora builds
