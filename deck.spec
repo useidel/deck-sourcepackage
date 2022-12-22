@@ -10,6 +10,7 @@ License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
 Source0:	https://github.com/Kong/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
+Patch0:		patch.gopsutil.version.patch
 Summary: 	Declarative configuration for Kong
 
 BuildRequires:  golang git
@@ -19,6 +20,9 @@ Declarative configuration for Kong
 
 %prep
 %autosetup
+
+%setup
+%patch0 -p1
 
 %build
 go build
@@ -32,6 +36,7 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %changelog
 * Thu Dec 22 2022 Udo Seidel <udoseidel@gmx.de> 1.17.0-1
 - version update
+- added patch for fedora builds
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
 * Sun Nov 13 2022 Udo Seidel <udoseidel@gmx.de> 1.16.1-2

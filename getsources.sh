@@ -13,7 +13,7 @@ MYVER=`grep ^Version *.spec |awk '{print $2}'`
 
 # copy the also needed patch file(s) to the RPMBUILD space
 # again this is different from the $GITHUB_WORKSPACE
-#cp *.patch /github/home/rpmbuild/SOURCES
+cp *.patch /github/home/rpmbuild/SOURCES
 
 # Now download the sources to the correspoding RPMBUILD directory
 cd /github/home/rpmbuild/SOURCES
