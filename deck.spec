@@ -4,8 +4,8 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.16.1
-Release:	2%{?dist}
+Version:        1.17.0
+Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -30,6 +30,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Dec 22 2022 Udo Seidel <udoseidel@gmx.de> 1.17.0-1
+- version update
+- full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
+
 * Sun Nov 13 2022 Udo Seidel <udoseidel@gmx.de> 1.16.1-2
 - Fix issue with ping when running against Konnect using a PAT. #790
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
