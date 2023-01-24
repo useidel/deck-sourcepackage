@@ -10,7 +10,7 @@ License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
 Source0:	https://github.com/Kong/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
-Patch0:		patch.gopsutil.version.patch
+#Patch0:		patch.gopsutil.version.patch
 Summary: 	Declarative configuration for Kong
 
 BuildRequires:  golang git
@@ -22,7 +22,7 @@ Declarative configuration for Kong
 %autosetup
 
 %setup
-%patch0 -p1
+#%patch0 -p1
 
 %build
 go build
