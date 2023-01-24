@@ -4,7 +4,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.17.1
+Version:        1.17.2
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Tue 24 2023 Udo Seidel <udoseidel@gmx.de> 1.17.2-1
+- a lot of bumping of versions of different components
+- full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
+
 * Thu Dec 22 2022 Udo Seidel <udoseidel@gmx.de> 1.17.1-1
 - Update go-kong to fix a bug causing wrong injection of defaults for arbitrary map fields. (https://github.com/Kong/go-kong/pull/258)
 
