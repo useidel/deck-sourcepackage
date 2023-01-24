@@ -34,7 +34,7 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
-* Tue 24 2023 Udo Seidel <udoseidel@gmx.de> 1.17.2-1
+* Tue Jan 24 2023 Udo Seidel <udoseidel@gmx.de> 1.17.2-1
 - a lot of bumping of versions of different components
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
