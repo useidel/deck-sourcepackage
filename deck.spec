@@ -10,7 +10,6 @@ License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
 Source0:	https://github.com/Kong/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
-#Patch0:		patch.gopsutil.version.patch
 Summary: 	Declarative configuration for Kong
 
 BuildRequires:  golang git
@@ -22,7 +21,6 @@ Declarative configuration for Kong
 %autosetup
 
 %setup
-#%patch0 -p1
 
 %build
 go build
@@ -35,7 +33,11 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 
 %changelog
 * Tue Jan 24 2023 Udo Seidel <udoseidel@gmx.de> 1.17.2-1
-- a lot of bumping of versions of different components
+- Allow writing execution output to stdout in Konnect mode. #829
+- Add tags support to Consumer Groups #823
+- Add "update" functionality to Consumer Groups #823
+- Do not error out when EE list endpoints are hit but no license is present in Kong Gateway. #821
+- out of band patch removed
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
 * Thu Dec 22 2022 Udo Seidel <udoseidel@gmx.de> 1.17.1-1
