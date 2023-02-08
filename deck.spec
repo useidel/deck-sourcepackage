@@ -4,7 +4,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.17.2
+Version:        1.17.3
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -32,6 +32,11 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Feb 09 2023 Udo Seidel <udoseidel@gmx.de> 1.17.3-1
+- Handle konnect runtime groups pagination properly. #841
+- Fix workspaces validation with multiple files #839
+- full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
+
 * Tue Jan 24 2023 Udo Seidel <udoseidel@gmx.de> 1.17.2-1
 - Allow writing execution output to stdout in Konnect mode. #829
 - Add tags support to Consumer Groups #823
