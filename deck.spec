@@ -4,7 +4,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.18.0
+Version:        1.18.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -32,11 +32,14 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
-* Thu Feb 11 2023 Udo Seidel <udoseidel@gmx.de> 1.18.0-1
+* Sat Feb 11 2023 Udo Seidel <udoseidel@gmx.de> 1.18.1-1
+- c7f142e fix: use global endpoint to retrieve Konnect org info
+
+* Thu Feb 09 2023 Udo Seidel <udoseidel@gmx.de> 1.18.0-1
 - Remove deprecated endpoint for pinging Konnect so to add Konnect System Accounts access token support. #843
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
-* Tue Feb 09 2023 Udo Seidel <udoseidel@gmx.de> 1.17.3-1
+* Tue Feb 07 2023 Udo Seidel <udoseidel@gmx.de> 1.17.3-1
 - Handle konnect runtime groups pagination properly. #841
 - Fix workspaces validation with multiple files #839
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
