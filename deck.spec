@@ -4,11 +4,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-<<<<<<< HEAD
 Version:        1.19.0
-=======
-Version:        1.18.1
->>>>>>> f089473e83a60328bafdc33cb0afe67624cf5ba8
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -36,18 +32,15 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
-<<<<<<< HEAD
 * Tue Feb 21 2023 Udo Seidel <udoseidel@gmx.de> 1.19.0-1
 - feat: add instance_name field to plugin schema
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
-* Thu Feb 11 2023 Udo Seidel <udoseidel@gmx.de> 1.18.0-1
-=======
 * Sat Feb 11 2023 Udo Seidel <udoseidel@gmx.de> 1.18.1-1
 - c7f142e fix: use global endpoint to retrieve Konnect org info
+- full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
 * Thu Feb 09 2023 Udo Seidel <udoseidel@gmx.de> 1.18.0-1
->>>>>>> f089473e83a60328bafdc33cb0afe67624cf5ba8
 - Remove deprecated endpoint for pinging Konnect so to add Konnect System Accounts access token support. #843
 - full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
