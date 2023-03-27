@@ -5,7 +5,7 @@
 
 Name:		%{pkgname}
 Version:        1.19.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -32,6 +32,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon Mar 27 2023 Udo Seidel <udoseidel@gmx.de> 1.19.1-2
+- Test
+
 * Mon Mar 27 2023 Udo Seidel <udoseidel@gmx.de> 1.19.1-1
 - Add support to numeric environment variables injection via the toInt and toFloat functions. #868
 - Add support to bolean environment variables injection via the toBool function. #867
