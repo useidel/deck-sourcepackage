@@ -24,7 +24,7 @@ Declarative configuration for Kong
 %setup
 
 %build
-go build -o deck -ldflags "-s -w -X github.com/kong/deck/cmd.VERSION=%Version -X github.com/kong/deck/cmd.COMMIT=$shortcommit""
+go build -o deck -ldflags "-s -w -X github.com/kong/deck/cmd.VERSION=%{Version} -X github.com/kong/deck/cmd.COMMIT=%{shortcommit}"
 
 %install
 install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
