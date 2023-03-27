@@ -1,6 +1,7 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
+%global 	shortcommit d80472
 %define 	_build_id_links none
 
 Name:		%{pkgname}
@@ -23,7 +24,7 @@ Declarative configuration for Kong
 %setup
 
 %build
-go build
+go build -o deck -ldflags "-s -w -X github.com/kong/deck/cmd.VERSION=%Version -X github.com/kong/deck/cmd.COMMIT=$shortcommit""
 
 %install
 install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
@@ -33,7 +34,7 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 
 %changelog
 * Mon Mar 27 2023 Udo Seidel <udoseidel@gmx.de> 1.19.1-2
-- Test
+- Added compile flags for version/tag and (short-)commit
 
 * Mon Mar 27 2023 Udo Seidel <udoseidel@gmx.de> 1.19.1-1
 - Add support to numeric environment variables injection via the toInt and toFloat functions. #868
