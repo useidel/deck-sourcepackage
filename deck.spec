@@ -1,12 +1,12 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit d80472
+%global 	shortcommit 735fbe2
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.19.1
-Release:	2%{?dist}
+Version:        1.21.0
+Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -33,6 +33,12 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Wed May 31 2023 Udo Seidel <udoseidel@gmx.de> 1.21.0-1
+- Add support for updating Services, Routes, and Consumers by changing their IDs, but retaining their names. #918
+- Fix Return proper error when HTTP calls fail on validate. #869
+- Fix Replace old docs link in convert and fix its docstring. #905
+- Misc Bump Go toolchain to 1.20. #898
+
 * Mon Mar 27 2023 Udo Seidel <udoseidel@gmx.de> 1.19.1-2
 - Added compile flags for version/tag and (short-)commit
 
@@ -52,7 +58,7 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 
 * Thu Feb 09 2023 Udo Seidel <udoseidel@gmx.de> 1.18.0-1
 - Remove deprecated endpoint for pinging Konnect so to add Konnect System Accounts access token support. #843
-- full changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
+- abfull changelog is here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
 
 * Tue Feb 07 2023 Udo Seidel <udoseidel@gmx.de> 1.17.3-1
 - Handle konnect runtime groups pagination properly. #841
