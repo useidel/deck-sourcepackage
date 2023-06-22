@@ -5,7 +5,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.22.0
+Version:        1.22.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu June 22 2023 Udo Seidel <udoseidel@gmx.de> 1.22.1-1
+- Fix Handle missing service and route names detecting duplicates #945
+- Fix Update go-kong to fix a bug causing a panic when filling record defaults of an empty array. #345
+
 * Thu June 08 2023 Udo Seidel <udoseidel@gmx.de> 1.22.0-1
 - Add indent function to support multi-line content #929 
 - Fix Update go-kong to fix a bug causing wrong injection of defaults for non-required fields and set of record. go-kong #333 go-kong #336 
