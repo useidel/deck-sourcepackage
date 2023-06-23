@@ -1,7 +1,7 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 735fbe2
+%global 	shortcommit 43ac0a8
 %define 	_build_id_links none
 
 Name:		%{pkgname}
