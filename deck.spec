@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 43ac0a8
+%global 	shortcommit 69aa892
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.22.1
+Version:        1.23.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon July 03 2023 Udo Seidel <udoseidel@gmx.de> 1.23.0-1
+- Add Honor HTTPS_PROXY and HTTP_PROXY proxy environment variables #952
+
 * Thu June 22 2023 Udo Seidel <udoseidel@gmx.de> 1.22.1-1
 - Fix Handle missing service and route names detecting duplicates #945
 - Fix Update go-kong to fix a bug causing a panic when filling record defaults of an empty array. #345
