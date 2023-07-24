@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 69aa892
+%global 	shortcommit d3f0a67
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.23.0
+Version:        1.24.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,16 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon July 24 2023 Udo Seidel <udoseidel@gmx.de> 1.24.0-1
+- Add a new flag (--json-output) to enable JSON output when using sync and diff commands #798 
+- Improved error logs coming from files validation against Kong's schemas. #976
+- Added a new command file openapi2kong that will generate a deck file from an OpenAPI 3.0 spec. This is the replacement for the similar inso functionality. The functionality is imported from the go-apiops library. #939
+- Added a new command file merge that will merge multiple deck files. The files will not be validated, which allows for working with incomplete or even invalid files in a pipeline. The functionality is imported from the go-apiops library. #939
+- Added a new command file patch for applying patches on top of a decK file. The patches can be provided on the commandline, or via patch files. The deck file will not be validated, which allows for working with incomplete or even invalid files in a pipeline. The functionality is imported from the go-apiops library. #939
+- Added a new commands file add-tags/list-tags/remove-tags to manage tags in a decK file. The deck file will not be validated, which allows for working with incomplete or even invalid files in a pipeline. The functionality is imported from the go-apiops library. #939
+- Added a new command file add-plugins for adding plugins to a decK file. The plugins can be provided on the commandline, or via config files. The deck file will not be validated, which allows for working with incomplete or even invalid files in a pipeline. The functionality is imported from the go-apiops library. #939
+- Fix Certificates & SNIs handling when running against Konnect. #978
+
 * Mon July 03 2023 Udo Seidel <udoseidel@gmx.de> 1.23.0-1
 - Add Honor HTTPS_PROXY and HTTP_PROXY proxy environment variables #952
 
