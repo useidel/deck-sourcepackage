@@ -6,7 +6,7 @@
 
 Name:		%{pkgname}
 Version:        1.24.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -33,7 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
-* Mon July 24 2023 Udo Seidel <udoseidel@gmx.de> 1.24.0-1
+* Mon Jul 24 2023 Udo Seidel <udoseidel@gmx.de> 1.24.0-2
+- fixed wrong date format in changelog of SPEC file
+
+* Mon Jul 24 2023 Udo Seidel <udoseidel@gmx.de> 1.24.0-1
 - Add a new flag (--json-output) to enable JSON output when using sync and diff commands #798 
 - Improved error logs coming from files validation against Kong's schemas. #976
 - Added a new command file openapi2kong that will generate a deck file from an OpenAPI 3.0 spec. This is the replacement for the similar inso functionality. The functionality is imported from the go-apiops library. #939
@@ -43,14 +46,14 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 - Added a new command file add-plugins for adding plugins to a decK file. The plugins can be provided on the commandline, or via config files. The deck file will not be validated, which allows for working with incomplete or even invalid files in a pipeline. The functionality is imported from the go-apiops library. #939
 - Fix Certificates & SNIs handling when running against Konnect. #978
 
-* Mon July 03 2023 Udo Seidel <udoseidel@gmx.de> 1.23.0-1
+* Mon Jul 03 2023 Udo Seidel <udoseidel@gmx.de> 1.23.0-1
 - Add Honor HTTPS_PROXY and HTTP_PROXY proxy environment variables #952
 
-* Thu June 22 2023 Udo Seidel <udoseidel@gmx.de> 1.22.1-1
+* Thu Jun 22 2023 Udo Seidel <udoseidel@gmx.de> 1.22.1-1
 - Fix Handle missing service and route names detecting duplicates #945
 - Fix Update go-kong to fix a bug causing a panic when filling record defaults of an empty array. #345
 
-* Thu June 08 2023 Udo Seidel <udoseidel@gmx.de> 1.22.0-1
+* Thu Jun 08 2023 Udo Seidel <udoseidel@gmx.de> 1.22.0-1
 - Add indent function to support multi-line content #929 
 - Fix Update go-kong to fix a bug causing wrong injection of defaults for non-required fields and set of record. go-kong #333 go-kong #336 
 
