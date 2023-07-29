@@ -1,12 +1,12 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit d3f0a67
+%global 	shortcommit 86497a5
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.24.0
-Release:	2%{?dist}
+Version:        1.25.0
+Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -33,6 +33,13 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sat Jul 29 2023 Udo Seidel <udoseidel@gmx.de> 1.25.0-1
+- Added a new command file render to render a final decK file. This will result in a file representing the state as it would be synced online. #963
+- Added a new flag --format to file convert to enable JSON output. #963
+- Use same interface to pull Consumer Groups with Kong Gateway and Konnect. This will help solving the issue of using tags with Consumer Groups when running against Konnect. #984
+- Fix Consumers handling when a consumer's custom_id is equal to the username of another consumer. #986
+- Avoid misleading diffs when configuration file has empty tags. #985
+
 * Mon Jul 24 2023 Udo Seidel <udoseidel@gmx.de> 1.24.0-2
 - fixed wrong date format in changelog of SPEC file
 
