@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 86497a5
+%global 	shortcommit 63b9742
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.25.0
+Version:        1.26.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Wed Aug 09 2023 Udo Seidel <udoseidel@gmx.de> 1.26.0-1
+- Added support for scoping plugins to Consumer Groups for both Kong Gateway and Konnect. #963 #959
+- Fix: Remove fallback mechanism formely used to authenticate with either "old" or "new" Konnect. #995
+
 * Sat Jul 29 2023 Udo Seidel <udoseidel@gmx.de> 1.25.0-1
 - Added a new command file render to render a final decK file. This will result in a file representing the state as it would be synced online. #963
 - Added a new flag --format to file convert to enable JSON output. #963
