@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 63b9742
+%global 	shortcommit b193a18
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.26.0
+Version:        1.26.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,13 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Sep 07 2023 Udo Seidel <udoseidel@gmx.de> 1.26.1-1
+- Fix: raise error if files have different Runtime Groups
+- Fix: correct consumers validation when custom_id is used #1012 
+- Fix: change go-apiops in examples to deck file
+- Fix: remove errant comma from CLI example
+- Fix: set default strip_path to true
+
 * Wed Aug 09 2023 Udo Seidel <udoseidel@gmx.de> 1.26.0-1
 - Added support for scoping plugins to Consumer Groups for both Kong Gateway and Konnect. #963 #959
 - Fix: Remove fallback mechanism formely used to authenticate with either "old" or "new" Konnect. #995
