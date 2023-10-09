@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit b193a18
+%global 	shortcommit c155000
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.26.1
+Version:        1.27.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Tue Sep 26 2023 Udo Seidel <udoseidel@gmx.de> 1.27.0-1
+- Added --konnect-control-plane-name flag and deprecate --konnect-runtime-group-name #1000
+- Fix: Bumped go-apiops to v0.1.21 to include various fixes on APIOps functionality #1029
+
 * Thu Sep 07 2023 Udo Seidel <udoseidel@gmx.de> 1.26.1-1
 - Fix: raise error if files have different Runtime Groups
 - Fix: correct consumers validation when custom_id is used #1012 
