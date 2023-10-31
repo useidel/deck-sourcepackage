@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit c589a3a
+%global 	shortcommit 48e236c
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.27.1
+Version:        1.28.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,13 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Tue Oct 31 2023 Udo Seidel <udoseidel@gmx.de> 1.28.0-1
+- Added Allow arrays to be specified on the file patch CLI command. #1056
+- Fix: Do not overwrite created_at for existing resources when running sync command. #1061
+- Fix: deck file openapi2kong creates names for entities that differ from the older inso tool. This has been fixed, but requires the new --inso-compatible flag to not be breaking. Adding that flag will also skip id generation. #962 
+- Changed Add analytics for local operations #1051
+- Changed The top-level CLI commands have been restructured. All commands now live under 2 subcommands (gateway and file) to clarify their use and (in the future) reduce the clutter of the many global flags only relevant to a few commands. The new commands are more unix-like, and preferably default to stdin/stdout and no longer to "kong.yaml". Using the old commands will still work but will print a deprecation notice. Please update your usage to the new commands. #962
+
 * Thu Sep 28 2023 Udo Seidel <udoseidel@gmx.de> 1.27.1-1
 - Fix: inconsistency when managing multiple consumers having equal username and custom_id fields. #1037
 - Fix: Correct a bug preventing the deprecated --konnect-runtime-group-name flag to work properly. #1036
