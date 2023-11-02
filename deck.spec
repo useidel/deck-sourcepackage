@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 48e236c
+%global 	shortcommit 62defae
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.28.0
+Version:        1.28.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Nov 02 2023 Udo Seidel <udoseidel@gmx.de> 1.28.1-1
+- Old cli commands would also output to stdout by default. Now back to default "kong.yaml". #1073
+- Deprecation warnings were send to stdout, mixing warnings with intended output. Now going to stderr. #1075
+
 * Tue Oct 31 2023 Udo Seidel <udoseidel@gmx.de> 1.28.0-1
 - Added Allow arrays to be specified on the file patch CLI command. #1056
 - Fix: Do not overwrite created_at for existing resources when running sync command. #1061
