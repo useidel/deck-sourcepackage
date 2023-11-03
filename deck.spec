@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 62defae
+%global 	shortcommit 8ce58a6
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.28.1
+Version:        1.29.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Fri Nov 03 2023 Udo Seidel <udoseidel@gmx.de> 1.29.0-1
+- Added support for konnect AU region. #1082
+- Fix: Resolved an issue in the deck file validate and deck gateway validate commands that prevented them from properly processing the provided file arguments. #1084
+
 * Thu Nov 02 2023 Udo Seidel <udoseidel@gmx.de> 1.28.1-1
 - Old cli commands would also output to stdout by default. Now back to default "kong.yaml". #1073
 - Deprecation warnings were send to stdout, mixing warnings with intended output. Now going to stderr. #1075
