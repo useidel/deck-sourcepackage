@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 8ce58a6
+%global 	shortcommit 3b884e3
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.29.0
+Version:        1.29.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Tue Nov 07 2023 Udo Seidel <udoseidel@gmx.de> 1.29.1-1
+- Fix: Correct a bug preventing logins with Konnect in the EU region. #1089
+
 * Fri Nov 03 2023 Udo Seidel <udoseidel@gmx.de> 1.29.0-1
 - Added support for konnect AU region. #1082
 - Fix: Resolved an issue in the deck file validate and deck gateway validate commands that prevented them from properly processing the provided file arguments. #1084
