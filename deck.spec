@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 3b884e3
+%global 	shortcommit 77682ca
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.29.1
+Version:        1.29.2
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Wed Nov 0 2023 Udo Seidel <udoseidel@gmx.de> 1.29.2-1
+- Fix: Avoid unnecessary Konnect API call to retrieve its version. #1095
+- Fix: Correct default values when using gateway dump. #1094
+
 * Tue Nov 07 2023 Udo Seidel <udoseidel@gmx.de> 1.29.1-1
 - Fix: Correct a bug preventing logins with Konnect in the EU region. #1089
 
