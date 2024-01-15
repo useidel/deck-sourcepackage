@@ -5,7 +5,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.29.2
+Version:        1.30.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,7 +33,14 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
-* Wed Nov 0 2023 Udo Seidel <udoseidel@gmx.de> 1.29.2-1
+* Mon Jan 16 2024 Udo Seidel <udoseidel@gmx.de> 1.30.0-1
+- Fix: Correct bug when consumer-group-consumer doesn't have an username. #1113
+- Fix: Improve deprecation warnings to reduce upgrade friction and show warning when reading STDIN from terminal. #1115
+- Fix: 'file openapi2kong': Server ports will now be properly parsed, 32767 to 65535 are now accepted. apiops #105
+- Added 'file openapi2kong': will now generate OpenIDConnect plugins. apiops #107
+- Refactored: Moved the database reconciler to its own project. #1109
+
+* Wed Nov 08 2023 Udo Seidel <udoseidel@gmx.de> 1.29.2-1
 - Fix: Avoid unnecessary Konnect API call to retrieve its version. #1095
 - Fix: Correct default values when using gateway dump. #1094
 
