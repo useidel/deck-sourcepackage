@@ -33,7 +33,7 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
-* Mon Jan 16 2024 Udo Seidel <udoseidel@gmx.de> 1.30.0-1
+* Mon Jan 15 2024 Udo Seidel <udoseidel@gmx.de> 1.30.0-1
 - Fix: Correct bug when consumer-group-consumer doesn't have an username. #1113
 - Fix: Improve deprecation warnings to reduce upgrade friction and show warning when reading STDIN from terminal. #1115
 - Fix: 'file openapi2kong': Server ports will now be properly parsed, 32767 to 65535 are now accepted. apiops #105
