@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 77682ca
+%global 	shortcommit 1f3135f
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.30.0
+Version:        1.31.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,13 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon Jan 22 2024 Udo Seidel <udoseidel@gmx.de> 1.31.1-1
+- Fix: bug when using consumer-group scoped plugins with multiple nested entities. #1177 go-database-reconciler #45
+
+* Mon Jan 22 2024 Udo Seidel <udoseidel@gmx.de> 1.31.0-1
+- Fix: Added missing analytics for file commands. #1171
+- Added support to default_lookup_tags to pull entities not part of the configuration file. #1124 #1173
+
 * Mon Jan 15 2024 Udo Seidel <udoseidel@gmx.de> 1.30.0-1
 - Fix: Correct bug when consumer-group-consumer doesn't have an username. #1113
 - Fix: Improve deprecation warnings to reduce upgrade friction and show warning when reading STDIN from terminal. #1115
