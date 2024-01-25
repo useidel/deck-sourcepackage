@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 1f3135f
+%global 	shortcommit 856c55d 
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.31.1
+Version:        1.32.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Jan 25 2024 Udo Seidel <udoseidel@gmx.de> 1.32.0-1
+- Added a new file namespace command to facilitate path-based namespacing. #1179 
+
 * Mon Jan 22 2024 Udo Seidel <udoseidel@gmx.de> 1.31.1-1
 - Fix: bug when using consumer-group scoped plugins with multiple nested entities. #1177 go-database-reconciler #45
 
