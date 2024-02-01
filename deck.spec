@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit da7aa1d 
+%global 	shortcommit 9efd8b4
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.32.1
+Version:        1.33.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Feb 01 2024 Udo Seidel <udoseidel@gmx.de> 1.33.0-1
+- Fix: Correct a defect preventing TLS configuration flags from being used with Konnect. #1194 go-database-reconciler #52
+
 * Mon Jan 29 2024 Udo Seidel <udoseidel@gmx.de> 1.32.1-1
 - Fix: Correct a defect preventing the use of plugins config deduplication when consumer-group scoped plugins are used. #1190 go-database-reconciler #45
 
