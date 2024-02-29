@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 7b5fefb
+%global 	shortcommit 0190a88 
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.34.0
+Version:        1.35.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -33,6 +33,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Feb 29 2024 Udo Seidel <udoseidel@gmx.de> 1.35.0-1
+- Added a new file kong2kic command to convert a Kong declarative file to k8s resources for the Kong Ingress Controller (supports Ingress and Gateway resources). #1050
+- Fix: auto-generate rla (rate-limiting-advanced) namespaces in the convert subcommand. #1206
+
 * Thu Feb 08 2024 Udo Seidel <udoseidel@gmx.de> 1.34.0-1
 - Fix: Correct consumer_groups -> consumers reference and allow importing their relationships from upstream using default_lookup_tags. #1212 go-database-reconciler #57
 - Fix: CLI fix: error out if deck file addplugins gets a --selector but no --config. #1211
