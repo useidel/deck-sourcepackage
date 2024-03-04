@@ -6,7 +6,7 @@
 
 Name:		%{pkgname}
 Version:        1.35.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -24,6 +24,7 @@ Declarative configuration for Kong
 %setup
 
 %build
+export GOPROXY='https://proxy.golang.org,direct'
 go build -o deck -ldflags "-s -w -X github.com/kong/deck/cmd.VERSION=%{version} -X github.com/kong/deck/cmd.COMMIT=%{shortcommit}"
 
 %install
@@ -33,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon Mar 04 2024 Udo Seidel <udoseidel@gmx.de> 1.35.1-1
+- added GOPROXY settings to make the build work on Fedora (https://github.com/golang/go/issues/36624#issuecomment-575612165)
+
 * Thu Feb 29 2024 Udo Seidel <udoseidel@gmx.de> 1.35.0-1
 - Added a new file kong2kic command to convert a Kong declarative file to k8s resources for the Kong Ingress Controller (supports Ingress and Gateway resources). #1050
 - Fix: auto-generate rla (rate-limiting-advanced) namespaces in the convert subcommand. #1206
