@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 2af58c0
+%global 	shortcommit 920cf1d
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.36.0
+Version:        1.36.1
 Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Mar 21 2024 Udo Seidel <udoseidel@gmx.de> 1.36.1-1
+- Fix: Avoid showing bogus diffs due to endpoint_permission roles array not being sorted. #71 go-database-reconciler
+- Fix: Do not fetch Kong version when using validate command. #1247
+
 * Thu Mar 14 2024 Udo Seidel <udoseidel@gmx.de> 1.36.0-1
 - Added: This completes the namespace feature, by adding the host-based namespacing to the existing path-based namespacing. #1241
 - Fix: Use correct workspace when running online validation. #1243
