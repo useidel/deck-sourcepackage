@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 0190a88 
+%global 	shortcommit 2af58c0
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.35.0
+Version:        1.36.0
 Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,13 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Mar 14 2024 Udo Seidel <udoseidel@gmx.de> 1.36.0-1
+- Added: This completes the namespace feature, by adding the host-based namespacing to the existing path-based namespacing. #1241
+- Fix: Use correct workspace when running online validation. #1243
+- Fix: Limit path-param names to 32 chars (go-apiops) #153 go-apiops
+- Fix: Correct various issues with the file kong2kic command. #1230
+
+
 * Mon Mar 04 2024 Udo Seidel <udoseidel@gmx.de> 1.35.1-1
 - added GOPROXY settings to make the build work on Fedora (https://github.com/golang/go/issues/36624#issuecomment-575612165)
 
