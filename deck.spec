@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 9d89a33
+%global 	shortcommit dd3b1b1
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.36.2
+Version:        1.37.0
 Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Wed Apr 10 2024 Udo Seidel <udoseidel@gmx.de> 1.37.0-1
+- Added a --konnect-compatibility flag to deck gateway validate that validates Konnect readiness from an existing decK state. #1227
+
 * Wed Apr 10 2024 Udo Seidel <udoseidel@gmx.de> 1.36.2-1
 - Fix: Auto-generate rla (rate-limiting-advanced) namespaces in the convert subcommand when using Consumer Groups too. #1263
 - Fix: OpenAPI 2 Kong: change regex priority field to int from uint, to allow for negative priorities. go-apiops # 162
