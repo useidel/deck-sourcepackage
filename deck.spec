@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 920cf1d
+%global 	shortcommit 9d89a33
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.36.1
+Version:        1.36.2
 Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Wed Apr 10 2024 Udo Seidel <udoseidel@gmx.de> 1.36.2-1
+- Fix: Auto-generate rla (rate-limiting-advanced) namespaces in the convert subcommand when using Consumer Groups too. #1263
+- Fix: OpenAPI 2 Kong: change regex priority field to int from uint, to allow for negative priorities. go-apiops # 162
+
 * Thu Mar 21 2024 Udo Seidel <udoseidel@gmx.de> 1.36.1-1
 - Fix: Avoid showing bogus diffs due to endpoint_permission roles array not being sorted. #71 go-database-reconciler
 - Fix: Do not fetch Kong version when using validate command. #1247
