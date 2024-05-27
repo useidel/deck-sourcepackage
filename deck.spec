@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit dd3b1b1
+%global 	shortcommit b6aba61
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.37.0
+Version:        1.38.0
 Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,17 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon May 27 2024 Udo Seidel <udoseidel@gmx.de> 1.38.0-1
+- Added openapi2kong now generates request-validator schemas for content-types with +json suffix. #1303 go-apiops #175
+- Fix: Correct plugins config comparison to avoid misleading diffs. #1306 go-database-reconciler #93
+- Fix: Make KIC v2 Gateway API v2 config generation deterministic. #1302
+- Fix: Correct tags filtering with Consumers and Consumer Groups. #1293 go-database-reconciler #88
+- Fix: Correct tags filtering with Consumers and Consumer Groups. #1293 go-database-reconciler #88
+- Fix: Correct typo in inso-compatible flag of openapi2kong command. #1295
+- Fix: Correct bad example on the add-plugins command cli help. #1294
+- Fix: Removed the unsupported json-output flag from validate #1278
+- Fix: Fixed race condition in lint command (bump vacuum library) #1281
+
 * Wed Apr 10 2024 Udo Seidel <udoseidel@gmx.de> 1.37.0-1
 - Added a --konnect-compatibility flag to deck gateway validate that validates Konnect readiness from an existing decK state. #1227
 
