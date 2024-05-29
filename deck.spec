@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit b6aba61
+%global 	shortcommit 526baa3
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.38.0
+Version:        1.38.1
 Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon May 29 2024 Udo Seidel <udoseidel@gmx.de> 1.38.1-1
+- Fix: Correct bug on plugins config comparison. #1311 go-database-reconciler #95
+
 * Mon May 27 2024 Udo Seidel <udoseidel@gmx.de> 1.38.0-1
 - Added openapi2kong now generates request-validator schemas for content-types with +json suffix. #1303 go-apiops #175
 - Fix: Correct plugins config comparison to avoid misleading diffs. #1306 go-database-reconciler #93
