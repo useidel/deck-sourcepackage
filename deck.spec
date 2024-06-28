@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 526baa3
+%global 	shortcommit fd1286c
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.38.1
+Version:        1.39.0
 Release:	2%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Fri Jun 28 2024 Udo Seidel <udoseidel@gmx.de> 1.39.0-1
+- Fix: Bump Go version to 1.22.4 #1321
+
 * Mon May 29 2024 Udo Seidel <udoseidel@gmx.de> 1.38.1-1
 - Fix: Correct bug on plugins config comparison. #1311 go-database-reconciler #95
 
