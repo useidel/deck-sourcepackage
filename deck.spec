@@ -13,7 +13,7 @@ URL:		%{forgeurl}
 Source0:	https://github.com/Kong/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
 Summary: 	Declarative configuration for Kong
 
-BuildRequires:  golang git
+BuildRequires:  golang >=1.22.4  git
 
 %description 
 Declarative configuration for Kong
@@ -34,10 +34,14 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sat Jun 29 2024 Udo Seidel <udoseidel@gmx.de> 1.39.1-1
+- Update BUILD requirements
+- Fixed bogus date in SPEC changelog
+
 * Fri Jun 28 2024 Udo Seidel <udoseidel@gmx.de> 1.39.0-1
 - Fix: Bump Go version to 1.22.4 #1321
 
-* Mon May 29 2024 Udo Seidel <udoseidel@gmx.de> 1.38.1-1
+* Wed May 29 2024 Udo Seidel <udoseidel@gmx.de> 1.38.1-1
 - Fix: Correct bug on plugins config comparison. #1311 go-database-reconciler #95
 
 * Mon May 27 2024 Udo Seidel <udoseidel@gmx.de> 1.38.0-1
