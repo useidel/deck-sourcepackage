@@ -13,7 +13,7 @@ URL:		%{forgeurl}
 Source0:	https://github.com/Kong/%{pkgname}/releases/download/v%{version}/v%{version}.tar.gz
 Summary: 	Declarative configuration for Kong
 
-BuildRequires:  golang >=1.22.4  git
+BuildRequires:  golang >= 1.22.4  git
 
 %description 
 Declarative configuration for Kong
