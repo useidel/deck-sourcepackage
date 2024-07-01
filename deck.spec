@@ -1,12 +1,12 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit fd1286c
+%global 	shortcommit 4fbb49b
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.39.0
-Release:	2%{?dist}
+Version:        1.39.1
+Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
 URL:		%{forgeurl}
@@ -34,7 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
-* Sat Jun 29 2024 Udo Seidel <udoseidel@gmx.de> 1.39.1-1
+* Mon Jul 01 2024 Udo Seidel <udoseidel@gmx.de> 1.39.1-1
+- Bumped CodeGen #1319
+
+* Sat Jun 29 2024 Udo Seidel <udoseidel@gmx.de> 1.39.0-2
 - Update BUILD requirements
 - Fixed bogus date in SPEC changelog
 
