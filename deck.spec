@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 4fbb49b
+%global 	shortcommit 57c8e3c
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.39.1
+Version:        1.39.2
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Jul 04 2024 Udo Seidel <udoseidel@gmx.de> 1.39.2-1
+- Fix: correct IPv6 targets comparison to avoid misleading diffs and failing syncs. #1333 go-database-reconciler #109
+- Fix: make lookups for consumer-group's consumers more performant. #1333 go-database-reconciler #102
+
 * Mon Jul 01 2024 Udo Seidel <udoseidel@gmx.de> 1.39.1-1
 - Bumped CodeGen #1319
 
