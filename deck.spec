@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 57c8e3c
+%global 	shortcommit 200a471
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.39.2
+Version:        1.39.3
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Tue Jul 16 2024 Udo Seidel <udoseidel@gmx.de> 1.39.3-1
+- Fix: #1228 by updating the golang version from 1.21 to 1.22, thus removing the inconsistency between decK releases' version and the one used in the project. #1336 
+
 * Thu Jul 04 2024 Udo Seidel <udoseidel@gmx.de> 1.39.2-1
 - Fix: correct IPv6 targets comparison to avoid misleading diffs and failing syncs. #1333 go-database-reconciler #109
 - Fix: make lookups for consumer-group's consumers more performant. #1333 go-database-reconciler #102
