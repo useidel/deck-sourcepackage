@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 200a471
+%global 	shortcommit aca781a
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.39.3
+Version:        1.39.4
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,11 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Aug 01 2024 Udo Seidel <udoseidel@gmx.de> 1.39.4-1
+- Fix: Correct --no-color flag behaviour in non-tty environments The changes retain the default behaviour of showing colors in tty and no colors in non-tty if no flag is passed. However, on passing the --no-color=false, non-tty environments can also get colored output.#1339
+- Fix: Add validation on deck file patch to avoid confusing behaviour. The command intends to patch input files either via selector-value flags or command arguments. The change ensures that at least one of these is present, but not both at the same time.#1342
+- Fix: rendering for expression routes, keeping kong gateway version in consideration. go-database-reconciler #118 #1351
+
 * Tue Jul 16 2024 Udo Seidel <udoseidel@gmx.de> 1.39.3-1
 - Fix: #1228 by updating the golang version from 1.21 to 1.22, thus removing the inconsistency between decK releases' version and the one used in the project. #1336 
 
