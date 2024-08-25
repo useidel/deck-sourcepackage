@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit aca781a
+%global 	shortcommit e23136a 
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.39.4
+Version:        1.39.5
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sun Aug 25 2024 Udo Seidel <udoseidel@gmx.de> 1.39.5-1
+- Fix: deck file openapi2kong command where parameter schema wasn't getting generated properly. #1355 go-apiops #186 
+
 * Thu Aug 01 2024 Udo Seidel <udoseidel@gmx.de> 1.39.4-1
 - Fix: Correct --no-color flag behaviour in non-tty environments The changes retain the default behaviour of showing colors in tty and no colors in non-tty if no flag is passed. However, on passing the --no-color=false, non-tty environments can also get colored output.#1339
 - Fix: Add validation on deck file patch to avoid confusing behaviour. The command intends to patch input files either via selector-value flags or command arguments. The change ensures that at least one of these is present, but not both at the same time.#1342
