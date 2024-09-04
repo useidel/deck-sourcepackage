@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit e23136a 
+%global 	shortcommit e44d6c4 
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.39.5
+Version:        1.39.6
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Wed Sep 04 2024 Udo Seidel <udoseidel@gmx.de> 1.39.6-1
+- Fix: issue where plugins scoped to consumer-groups were shown as global by deck. #1380 go-database-reconciler #134
+
 * Sun Aug 25 2024 Udo Seidel <udoseidel@gmx.de> 1.39.5-1
 - Fix: deck file openapi2kong command where parameter schema wasn't getting generated properly. #1355 go-apiops #186 
 
