@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit e44d6c4 
+%global 	shortcommit cd7cdf7
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.39.6
+Version:        1.40.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,14 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sun Sep 15 2024 Udo Seidel <udoseidel@gmx.de> 1.40.0-1
+- Added a new file kong2tf command to convert a deck file to Terraform configuration #1391, along with two command line flags:
+	--generate-imports-for-control-plane-id: If this is provided, import blocks will be added to Terraform to adopt existing resources.
+	--ignore-credential-changes: If this is provided, any credentials will be ignored until they are destroyed and recreated.
+- Fix: issue that was preventing a consumer to be in more than one consumer-groups #1394 go-database-reconciler #140
+- Fix: Fields marked as auto in schema are filled with nil in the config sent to the Control Plane. In case a field is marked as auto and is a required field, deck would throw an error if the user doesn't fill it in the declarative configuration file. #1394 go-database-reconciler #139
+- Fix: Defaults are no longer filled by deck. They will only be used for computing a diff, but not sent to the Control Plane. #1394 go-database-reconciler #133
+
 * Wed Sep 04 2024 Udo Seidel <udoseidel@gmx.de> 1.39.6-1
 - Fix: issue where plugins scoped to consumer-groups were shown as global by deck. #1380 go-database-reconciler #134
 
