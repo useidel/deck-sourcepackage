@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit cd7cdf7
+%global 	shortcommit 74b1859 
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.40.0
+Version:        1.40.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,11 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sun Sep 15 2024 Udo Seidel <udoseidel@gmx.de> 1.40.1-1
+- Fix: issue in deck file kong2tf command where users were facing a panic error with using jwt plugins when passing an empty list to cookie_names field. #1399
+- Fix: Bumped up go-apiops library. The updated lib has a fix for deck file openapi2kong command where parameters.required field was coming as null, if not passed by user. #1400 go-apiops #205
+- Fix: Bumped up go-kong library. The updated lib prevents unset plugin's configuration "record" fields to be filled with empty tables: {} for deck files. Since, deck doesn't fill defaults anymore, this fix ensures that deck doesn't pass empty record fields while syncing plugin configurations. #1401 go-kong #467
+
 * Sun Sep 15 2024 Udo Seidel <udoseidel@gmx.de> 1.40.0-1
 - Added a new file kong2tf command to convert a deck file to Terraform configuration #1391, along with two command line flags:
 	--generate-imports-for-control-plane-id: If this is provided, import blocks will be added to Terraform to adopt existing resources.
