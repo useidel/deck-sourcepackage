@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 74b1859 
+%global 	shortcommit a50b695
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.40.1
+Version:        1.40.2
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Sep 19 2024 Udo Seidel <udoseidel@gmx.de> 1.40.2-1
+- Add support for default lookup services by @AntoineJac in #1367
+
 * Sun Sep 15 2024 Udo Seidel <udoseidel@gmx.de> 1.40.1-1
 - Fix: issue in deck file kong2tf command where users were facing a panic error with using jwt plugins when passing an empty list to cookie_names field. #1399
 - Fix: Bumped up go-apiops library. The updated lib has a fix for deck file openapi2kong command where parameters.required field was coming as null, if not passed by user. #1400 go-apiops #205
