@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit a50b695
+%global 	shortcommit cd165de
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.40.2
+Version:        1.40.3
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sun Sep 29 2024 Udo Seidel <udoseidel@gmx.de> 1.40.3-1
+- Fix: the behaviour of --konnect-addr flag in case default Konnect URL is used with it. Earlier, using the default URL with the said flag ran the command against the gateway. #1398
+- Bumped up go-apiops to v0.1.38 and replaced yaml/v3 package with Kong's own fork. This change allows deck commands to process OAS files with path lengths > 128 characters which was a limitation from the original yaml library.#1405 go-apiops #208 Kong/yaml #1
+
 * Thu Sep 19 2024 Udo Seidel <udoseidel@gmx.de> 1.40.2-1
 - Add support for default lookup services by @AntoineJac in #1367
 
