@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit cd165de
+%global 	shortcommit  da3d70e
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.40.3
+Version:        1.41.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon Oct 28 2024 Udo Seidel <udoseidel@gmx.de> 1.41.0-1
+- Add deck gateway validate command now supports Konnect. Konnect entities can be validated online with this change. #1335
+- Fix: Quoted type constraints are removed for Terraform. Type constraints in quotes were required in Terraform <= 0.11, It is now deprecated and will be removed in a future Terraform versions. Thus, removed them from kong2tf generation, so as to avoid potential errors in terraform apply. #1412
+
 * Sun Sep 29 2024 Udo Seidel <udoseidel@gmx.de> 1.40.3-1
 - Fix: the behaviour of --konnect-addr flag in case default Konnect URL is used with it. Earlier, using the default URL with the said flag ran the command against the gateway. #1398
 - Bumped up go-apiops to v0.1.38 and replaced yaml/v3 package with Kong's own fork. This change allows deck commands to process OAS files with path lengths > 128 characters which was a limitation from the original yaml library.#1405 go-apiops #208 Kong/yaml #1
