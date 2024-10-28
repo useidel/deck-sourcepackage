@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit  da3d70e
+%global 	shortcommit  947e349
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.41.0
+Version:        1.41.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Mon Oct 28 2024 Udo Seidel <udoseidel@gmx.de> 1.41.1-1
+- Fix: deck gateway validate for Konnect supports Konnect configs passed by CLI flags now. Earlier, the validation was failing if control plane information was passed via CLI flags.
+
 * Mon Oct 28 2024 Udo Seidel <udoseidel@gmx.de> 1.41.0-1
 - Add deck gateway validate command now supports Konnect. Konnect entities can be validated online with this change. #1335
 - Fix: Quoted type constraints are removed for Terraform. Type constraints in quotes were required in Terraform <= 0.11, It is now deprecated and will be removed in a future Terraform versions. Thus, removed them from kong2tf generation, so as to avoid potential errors in terraform apply. #1412
