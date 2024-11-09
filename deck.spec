@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit  947e349
+%global 	shortcommit c88f497
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.41.1
+Version:        1.41.2
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sat Nov 09 2024 Udo Seidel <udoseidel@gmx.de> 1.41.2-1
+- Fix: to validate for top-level type in parameter schemas in request-validator plugin while using deck file openapi2kong. go-apiops #215
+- Add support for defining path parameters outside REST methods for request-validation while using deck file openapi2kong. go-apiops #216 (#1429)[#1429]
+
 * Mon Oct 28 2024 Udo Seidel <udoseidel@gmx.de> 1.41.1-1
 - Fix: deck gateway validate for Konnect supports Konnect configs passed by CLI flags now. Earlier, the validation was failing if control plane information was passed via CLI flags.
 
