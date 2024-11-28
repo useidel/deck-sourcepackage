@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit c88f497
+%global 	shortcommit 63dc5b4 
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.41.2
+Version:        1.41.3
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Nov 28 2024 Udo Seidel <udoseidel@gmx.de> 1.41.3-1
+- Fix: Updated Konnect authentication logic to properly handle geo rewrites. #1451 go-database-reconciler #146
+- Fix: false diffs for gateway by clearing unmatching deprecated fields from plugin schemas. #1451 go-database-reconciler #145 go-kong #473
+
 * Sat Nov 09 2024 Udo Seidel <udoseidel@gmx.de> 1.41.2-1
 - Fix: to validate for top-level type in parameter schemas in request-validator plugin while using deck file openapi2kong. go-apiops #215
 - Add support for defining path parameters outside REST methods for request-validation while using deck file openapi2kong. go-apiops #216 (#1429)[#1429]
