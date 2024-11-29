@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 63dc5b4 
+%global 	shortcommit 4da4246 
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.41.3
+Version:        1.41.4
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Fri Nov 29 2024 Udo Seidel <udoseidel@gmx.de> 1.41.4-1
+- Add:  validation for ensuring that cookie parameters in parameter schemas are skipped and a warning is logged for the user while using deck file openapi2kong command. #1452 go-apiops #255
+- Fix: issue where creating arrays with mixed types using oneOf in OAS specifications were failing while using deck file openapi2kong command. #1452 go-apiops #231
+
 * Thu Nov 28 2024 Udo Seidel <udoseidel@gmx.de> 1.41.3-1
 - Fix: Updated Konnect authentication logic to properly handle geo rewrites. #1451 go-database-reconciler #146
 - Fix: false diffs for gateway by clearing unmatching deprecated fields from plugin schemas. #1451 go-database-reconciler #145 go-kong #473
