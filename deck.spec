@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 4da4246 
+%global 	shortcommit 63fd4c7
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.41.4
+Version:        1.42.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,14 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Fri Dec 13 2024 Udo Seidel <udoseidel@gmx.de> 1.42.0-1
+- Add: new flag --online-entities-list to validate the specified entities via deck gateway validate command. #1458
+- Add: feature to ignore entities tagged with konnect-managed during deck dump, sync and diff. This is valid for Konnect entities only. #1478 go-database-reconciler #153
+- Add: Improved speed for deck sync/diff operations involving consumer-groups for gw 3.9+. The underlying API call to GET /consumer_group is called with query parameter list_consumers=false, making it faster for deck to deal with cases where a consumer-group holds many consumers. (#1475)[#1475] (go-kong #487)[Kong/go-kong#487] 
+- Fix: issue where tags were not getting propagated to consumer-group plugins. #1478 go-database-reconciler #151 go-kong #485
+- Fix: Enhanced help message for generate-imports-for-control-plane-id flag #1448
+- Fix: Restored to using Gateway API generation in deck file kong2kic, rather than Ingress API #1431
+
 * Fri Nov 29 2024 Udo Seidel <udoseidel@gmx.de> 1.41.4-1
 - Add:  validation for ensuring that cookie parameters in parameter schemas are skipped and a warning is logged for the user while using deck file openapi2kong command. #1452 go-apiops #255
 - Fix: issue where creating arrays with mixed types using oneOf in OAS specifications were failing while using deck file openapi2kong command. #1452 go-apiops #231
