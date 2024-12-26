@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 63fd4c7
+%global 	shortcommit f73569d
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.42.0
+Version:        1.42.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Thu Dec 26 2024 Udo Seidel <udoseidel@gmx.de> 1.42.1-1
+- Fix: Updated golang.org/x/net to version v0.33.0 to account for vulnerability CVE-2024-45338 #1481 
+
 * Fri Dec 13 2024 Udo Seidel <udoseidel@gmx.de> 1.42.0-1
 - Add: new flag --online-entities-list to validate the specified entities via deck gateway validate command. #1458
 - Add: feature to ignore entities tagged with konnect-managed during deck dump, sync and diff. This is valid for Konnect entities only. #1478 go-database-reconciler #153
