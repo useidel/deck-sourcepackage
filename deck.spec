@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit b786101
+%global 	shortcommit cf002e0
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.43.0
+Version:        1.43.1
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Fri Feb 07 2024 Udo Seidel <udoseidel@gmx.de> 1.43.1-1
+- The deck gateway apply command added in v1.43.0 added additional HTTP calls to discover which functions are enabled. This does not work well when using an RBAC user with restricted permissions. This change removes those additional checks and delegates the lookup of foreign keys for partial applications to go-database-reconciler. #1508 go-database-reconciler #182
+
 * Fri Feb 07 2024 Udo Seidel <udoseidel@gmx.de> 1.43.0-1
 - Added deck gateway apply command that allows users to apply partial configuration to a running Gateway instance. #1459 go-database-reconciler #143
 - Added support for private link global api endpoint for Konnect. #1500 go-database-reconciler #165
