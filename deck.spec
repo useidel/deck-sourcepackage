@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit f73569d
+%global 	shortcommit b786101
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.42.1
+Version:        1.43.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,17 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Fri Feb 07 2024 Udo Seidel <udoseidel@gmx.de> 1.43.0-1
+- Added deck gateway apply command that allows users to apply partial configuration to a running Gateway instance. #1459 go-database-reconciler #143
+- Added support for private link global api endpoint for Konnect. #1500 go-database-reconciler #165
+- Added flag --skip-consumers-with-consumer-groups for deck gateway dump command. If set to true, deck skips listing consumers with consumer-groups, thus gaining some performance with large configs. It is not valid for Konnect. #1486
+- Adjusted multiline string formatting in terraform resource generation. #1482
+- Improved error messaging when mandatory flag is missing in deck file convert. #1487
+- Fixed deck gateway dump command that was missing associations between consumer-groups and consumers. #1486 go-database-reconciler #159 go-kong #494
+- Added checks for all conflicting nested configs in plugins. A foreign key nested under a plugin of a different scope would error out. This would make sure that a sync does not go through when wrong configurations are passed via deck. go-database-reconciler #157
+- Fixed req-validator config generation while using deck file openapi2kong command when both body and param schema are empty. #1501 go-apiops #244
+- Fixed tags retention on entities while using select-tags. #1500 go-database-reconciler #156
+
 * Thu Dec 26 2024 Udo Seidel <udoseidel@gmx.de> 1.42.1-1
 - Fix: Updated golang.org/x/net to version v0.33.0 to account for vulnerability CVE-2024-45338 #1481 
 
