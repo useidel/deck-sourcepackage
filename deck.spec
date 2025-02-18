@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit cf002e0
+%global 	shortcommit 4624063
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.43.1
+Version:        1.44.0
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Tue Feb 18 2024 Udo Seidel <udoseidel@gmx.de> 1.44.0-1
+- Added support for consumer-group policy overrides in Kong Gateway version 3.4+ (until next major version is released). This is enabled via flag --consumer-group-policy-overrides in sync, diff and dump commands. Consumer-group policy overrides, though supported, are a deprecated feature in the Kong Gateway and users should consider moving to Consumer-group scoped plugins instead. Mixing of the two approaches should be avoided. #1518 go-database-reconciler #191
+- Added support for managing degraphql_routes via deck for both Kong Gateway and Konnect. #1505 go-database-reconciler #154
+
 * Fri Feb 07 2024 Udo Seidel <udoseidel@gmx.de> 1.43.1-1
 - The deck gateway apply command added in v1.43.0 added additional HTTP calls to discover which functions are enabled. This does not work well when using an RBAC user with restricted permissions. This change removes those additional checks and delegates the lookup of foreign keys for partial applications to go-database-reconciler. #1508 go-database-reconciler #182
 
