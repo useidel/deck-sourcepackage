@@ -1,11 +1,11 @@
 %define         pkgname         deck
 %global         forgeurl        https://github.com/Kong/%{pkgname}
 %global 	debug_package %{nil}
-%global 	shortcommit 8afb15c
+%global 	shortcommit 21866d2
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.44.1
+Version:        1.44.2
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,9 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Tue Feb 18 2024 Udo Seidel <udoseidel@gmx.de> 1.44.2-1
+- Fix: Updated golang to version v1.23.5 to account for vulnerability CVE-2022-28948 #1497 #1533 
+
 * Tue Feb 18 2024 Udo Seidel <udoseidel@gmx.de> 1.44.1-1
 - Fix: Fixed issue coming with using deck against open-source Kong gateways where operations were getting stuck due to custom-entities support. Custom Entities are now gated to Enterprise gateways only. go-database-reconciler #1525
 
