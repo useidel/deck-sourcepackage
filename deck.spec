@@ -5,7 +5,7 @@
 %define 	_build_id_links none
 
 Name:		%{pkgname}
-Version:        1.44.2
+Version:        1.46.3
 Release:	1%{?dist}
 License:	Apache License v2.0
 Vendor:		Kong Inc.
@@ -34,6 +34,10 @@ install -Dpm 0755 %{pkgname} %{buildroot}%{_bindir}/%{pkgname}
 %{_bindir}/deck
 
 %changelog
+* Sun Apr 13 2025 Udo Seidel <udoseidel@gmx.de> 1.46.3-1
+- Bumping to the most recent version
+- For changelog please go here: https://github.com/Kong/deck/blob/main/CHANGELOG.md
+
 * Tue Feb 18 2024 Udo Seidel <udoseidel@gmx.de> 1.44.2-1
 - Fix: Updated golang to version v1.23.5 to account for vulnerability CVE-2022-28948 #1497 #1533 
 
